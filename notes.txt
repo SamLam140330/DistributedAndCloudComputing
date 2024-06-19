@@ -1,0 +1,29 @@
+---Self create hadoop server ref---
+https://kontext.tech/article/377/latest-hadoop-321-installation-on-windows-10-step-by-step-guide
+https://github.com/cdarlint/winutils
+
+---Environment Variable---
+JAVA_HOME:
+C:\PROGRA~1\EclipseAdoptium\jdk-8.0.412.8-hotspot
+HADOOP_HOME:
+C:\Apps\hadoop
+Path:
+C:\PROGRA~1\EclipseAdoptium\jdk-8.0.412.8-hotspot\bin
+C:\Apps\hadoop\bin
+C:\Users\samlam\hadoop-http-auth-signature-secret
+
+---Intellij run---
+$ModuleFileDir$\src\test\resources\friends.txt $ModuleFileDir$\out\output
+
+---Intellij build---
+Remove others except compile output and META-INF
+
+---Hadoop run---
+* hadoop fs -mkdir /user (First time setup only)
+* hadoop fs -mkdir /user/samlam (First time setup only)
+hadoop fs -ls
+hadoop fs -copyFromLocal vaccination-rates-over-time-by-age.txt
+hadoop jar Assignment1Q5.jar vaccination-rates-over-time-by-age.txt output
+hadoop fs -cat output/*
+hadoop fs -rm -r output
+hadoop fs -rm vaccination-rates-over-time-by-age.txt
